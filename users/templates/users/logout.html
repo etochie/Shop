@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h3>Вы вышли из личного кабинета</h3>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login_url' %}">Войти снова?</a>
+        </small>
+    </div>
+
+{% endblock %}
