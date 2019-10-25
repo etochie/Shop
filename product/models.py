@@ -1,6 +1,7 @@
 from django.db import models
 from pytils.translit import slugify
 from django.utils import timezone
+from django.shortcuts import reverse
 
 from time import time
 
@@ -28,6 +29,9 @@ class Item(models.Model):
             self.slug = gen_slug(self.title)
         return super().save(*args, **kwargs)
 
+    def get_detail_url(self):
+        return reverse('product:product_detail_url', kwargs={'slug': self.slug})
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=200)
@@ -40,4 +44,6 @@ class Tag(models.Model):
         if not self.id:  # сохранение сгенерированного slug
             self.slug = gen_slug(self.title)
         return super().save(*args, **kwargs)
+
+
 

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ item.title }}
+{% endblock %}
+
+{% block content %}
+
+    <div style="padding: 2.25rem; background: #f2f2f2; border-radius: 10px">
+
+        <h4 class="mt-4">
+            {{ item.title }}
+        </h4>
+        <p class="card-text"><small class="text-muted">{{ article.pub_date }}</small></p>
+        {% if item.img %}
+            <div style="">
+                <img src="{{ item.img.url }}" width="820"  alt="..." style="border-radius: 10px 10px 0px 0px; width: 15rem">
+            </div>
+        {% endif %}
+        <p class="mt-4">
+            <big>
+                {{ item.body }}
+            </big>
+        </p>
+        <a href="#" class="btn btn-primary mt-3">Купить</a>
+
+    </div>
+
+
+{% endblock %}
